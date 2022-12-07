@@ -2,7 +2,7 @@ import "./App.css";
 // import io from "socket.io-client";
 // import { useState } from "react";
 // import Chat from "./Components/Chat/Chat";
-import Button from "./Components/Button/Button";
+import Button from "./Components/Common/Button/Button";
 import CreateTableForm from "./Components/CreateTableForm/CreateTableForm";
 
 import "./Components/IndexPageTableLine/IndexPageTableLine.sass"

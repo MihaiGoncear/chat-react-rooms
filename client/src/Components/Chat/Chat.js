@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Button from "../Button/Button";
+import Button from "../Common/Button/Button";
 import "./Chat.sass";
 
 function Chat({ socket, username, room }) {
