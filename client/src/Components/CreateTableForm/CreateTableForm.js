@@ -55,7 +55,7 @@ function CreateTableForm() {
           </div>
           <div className="choose__game__settings">
             <div className="game-settings-first">
-              <div className={`game__mode game-min-level ${tableType === "2" && 'hidden'}`} id="js__create-table-min-level">
+              <div className={`game__mode game-min-level ${tableType === "2" ? 'hidden' : ''}`} id="js__create-table-min-level">
                 <div className="title">Status minim pentru a intra la masa</div>
                 <div className="radio__wrapper">
                   {createTableStatusList.map(
@@ -69,7 +69,7 @@ function CreateTableForm() {
                   <div className="triangle">▼</div>
                 </div>
               </div>
-              <div className={`game__mode game-choose-stake ${tableType !== "2" && 'hidden'}`} id="js__create-table-choose-stake">
+              <div className={`game__mode game-choose-stake ${tableType !== "2" ? 'hidden' : ''}`} id="js__create-table-choose-stake">
                 <div className="title-container">
                   <div className="title">Alege Miza</div>
                   <img alt="no" className="responsive__image coins" src="https://belot.md/static/images/user-account/coins2.png" />
@@ -95,7 +95,7 @@ function CreateTableForm() {
               </div>
             </div>
             <div className="game-settings-second" id="js_create-table-second-column">
-              <div className={`game__mode game-points-choose ${tableType !== "3" && 'hidden'}`} id="js__create-table-point">
+              <div className={`game__mode game-points-choose ${tableType !== "3" ? 'hidden' : ''}`} id="js__create-table-point">
                 <div className="title">Jocul tine pana la</div>
                 <div className="radio__wrapper">
                   <div className="form__group__wrapper">
@@ -112,7 +112,7 @@ function CreateTableForm() {
                   </div>
                 </div>
               </div>
-              <div className={`checkbox__wrapper ${tableType !== "4" && 'hidden'}`} id="js__create-table-choose-places">
+              <div className={`checkbox__wrapper ${tableType !== "4" ? 'hidden' : ''}`} id="js__create-table-choose-places">
                 <div className="game__mode">
                   <input type="checkbox" id="game-pairs-mode" name="aleator" defaultChecked />
                   <label className="checkbox-label-wrapper" htmlFor="game-pairs-mode"><i className="checkmark"></i>
@@ -123,7 +123,7 @@ function CreateTableForm() {
                   </label>
                 </div>
               </div>
-              <div className={`checkbox__wrapper ${tableType !== "4" && 'hidden'}`} id="js__create-table-less-than-points">
+              <div className={`checkbox__wrapper ${tableType !== "4" ? 'hidden' : ''}`} id="js__create-table-less-than-points">
                 <div className="game__mode">
                   <input type="checkbox" id="game-cancel-mode" name="14puncte" />
                   <label className="checkbox-label-wrapper" htmlFor="game-cancel-mode"><i className="checkmark"></i>
@@ -131,7 +131,7 @@ function CreateTableForm() {
                   </label>
                 </div>
               </div>
-              <div id="js__daily-limit-create-table" className={`daily-limit-create-table ${tableType !== "2" && 'hidden'}`}>
+              <div id="js__daily-limit-create-table" className={`daily-limit-create-table ${tableType !== "2" ? 'hidden' : ''}`}>
                 <div className="info-about-statistic">
                   <div className="info-about-statistic__row">
                     <span className="info">Statistica de azi:</span>
@@ -148,7 +148,7 @@ function CreateTableForm() {
                   <a href="status.php" className="btn">Mareste Limita</a>
                 </div>
               </div>
-              <div className={`checkbox__wrapper ${tableType !== "2" && 'hidden'}`} id="js__create-table-reduced-combinations">
+              <div className={`checkbox__wrapper ${tableType !== "2" ? 'hidden' : ''}`} id="js__create-table-reduced-combinations">
                 <div className="game__mode">
                   <input type="checkbox" id="game-combination" name="combinatii-reduse" />
                   <label className="checkbox-label-wrapper" htmlFor="game-combination"><i className="checkmark"></i>
@@ -159,7 +159,7 @@ function CreateTableForm() {
                   </label>
                 </div>
               </div>
-              <div className={`checkbox__wrapper ${tableType === "2" && 'hidden'}`} id="js__create-table-password">
+              <div className={`checkbox__wrapper ${tableType === "2" ? 'hidden' : ''}`} id="js__create-table-password">
                 <div className="game__mode">
                   <input type="checkbox" id="game-password-mode" />
                   <label className="checkbox-label-wrapper" htmlFor="game-password-mode">
