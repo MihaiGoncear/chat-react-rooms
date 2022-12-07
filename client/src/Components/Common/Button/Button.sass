@@ -1,9 +1,18 @@
-.common-btn-color__green 
-    border: 1px solid #8ee35f
+
+.common-button-wrapper
+  display: flex
+  align-items: center
+  justify-content: center  
+  .common-btn
+    text-align: center
     border-radius: 7px
     padding: 6px 10px
     color: #ededed
     text-shadow: 0 1px #0c1117
-    box-shadow: 0px 2px 1px 0px #131623
-    background: linear-gradient(to top, #4f9253, #66ba6a)
     cursor: pointer
+    &-color__green 
+      border: 1px solid #8ee35f
+      box-shadow: 0px 2px 1px 0px #131623
+      background: linear-gradient(#66ba6a, #4f9253)
+      &:hover
+        background: linear-gradient(to bottom, #7fe383, #61ad64)

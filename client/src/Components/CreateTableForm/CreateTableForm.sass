@@ -6,6 +6,11 @@
   flex-direction: column
   @media screen and (max-width: 768px)
     margin: 0
+  .common-btn-color__green 
+    padding: 10px 30px 12px 30px
+    border-radius: 7px
+    font-size: 20px
+    font-weight: 600
   .form__full__wrapper
     position: relative
     width: 100%
@@ -305,6 +310,10 @@
               display: flex
               flex: 1 1 calc(50% - 25px)
               padding: 10px 7px
+              &.active
+                .checkmark
+                  &::before
+                    content: ''
               .table-color-div
                 width: 54px
                 height: 30px

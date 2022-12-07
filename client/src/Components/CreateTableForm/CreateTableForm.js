@@ -1,18 +1,28 @@
 import React, { useState } from 'react';
 import "./CreateTableForm.sass";
 import DropDown from '../Common/DropDown/DropDown';
+import Button from '../Common/Button/Button';
+import { createTableStatusList } from '../../constants';
+import StatusTableRadioElement from './Components/StatusTableRadioElement';
 
 function CreateTableForm() {
-  const [tableType, setTableType] = useState('4');
-  const clickOnTableType = (e) => {
-    setTableType(e.target.value);
-  }
+  const dropDownsItems = [25, 50, 100, 150, 200, 300];
 
+  const [tableType, setTableType] = useState('4');
+  const [stakeValue, setStakeValue] = useState(dropDownsItems[0]);
+  const [tableMinStatus, setTableMinStatus] = useState(createTableStatusList[0].name)
+
+  const getStake = (e) => setStakeValue(e.target.innerText);
+  const clickOnTableType = (e) => setTableType(e.target.value);
+  const test = () => {
+    console.log(createTableStatusList);
+  }
+  const toggleTableMinStatus = (element) => setTableMinStatus(element);
+  
   return (
     <div className="create-table-container">
       <div className="form__full__wrapper">
         <form className="create__game__form__wrapper" id="createTableForm" action="gameTables.php" method="POST">
-          <input type="hidden" name="createNewTable" value="1" />
           <div className="quit-button js__open-create-table-modal">×</div>
           <div className="choose__player__numbers">
             <div className="choose-player-numbers-title">Alege numarul jucatorilor</div>
@@ -45,42 +55,12 @@ function CreateTableForm() {
           </div>
           <div className="choose__game__settings">
             <div className="game-settings-first">
-              <div className={`game__mode game-min-level ${tableType === "2" ? 'hidden' : ''}`} id="js__create-table-min-level">
+              <div className={`game__mode game-min-level ${tableType === "2" && 'hidden'}`} id="js__create-table-min-level">
                 <div className="title">Status minim pentru a intra la masa</div>
                 <div className="radio__wrapper">
-                  <div className="form__group__wrapper">
-                    <input type="radio" id="gamelevel-0" name="gametable_level" value="0" defaultChecked />
-                    <label className="form__group__content__wrapper" htmlFor="gamelevel-0"><i className="checkmark"></i>
-                      <div className="description">Pentru toti</div>
-                    </label>
-                  </div>
-                  <div className="form__group__wrapper">
-                    <input type="radio" id="gamelevel-2" name="gametable_level" value="2" />
-                    <label className="form__group__content__wrapper" htmlFor="gamelevel-2"><i className="checkmark"></i>
-                      <div className="level-img">
-                        <img alt="no" className="responsive__image" src="https://belot.md/img/v3/status_hq/2.png" />
-                      </div>
-                      <div className="description">Amator</div>
-                    </label>
-                  </div>
-                  <div className="form__group__wrapper">
-                    <input type="radio" id="gamelevel-4" name="gametable_level" value="4" />
-                    <label className="form__group__content__wrapper" htmlFor="gamelevel-4"><i className="checkmark"></i>
-                      <div className="level-img">
-                        <img alt="no" className="responsive__image" src="https://belot.md/img/v3/status_hq/4.png" />
-                      </div>
-                      <div className="description">Profesionist</div>
-                    </label>
-                  </div>
-                  <div className="form__group__wrapper">
-                    <input type="radio" id="gamelevel-6" name="gametable_level" value="6" />
-                    <label className="form__group__content__wrapper" htmlFor="gamelevel-6"><i className="checkmark"></i>
-                      <div className="level-img">
-                        <img alt="no" className="responsive__image" src="https://belot.md/img/v3/status_hq/6.png" />
-                      </div>
-                      <div className="description">Master</div>
-                    </label>
-                  </div>
+                  {createTableStatusList.map(
+                    (item, index) => <StatusTableRadioElement Tkey={index} state={tableMinStatus} setState={toggleTableMinStatus} statusObj={item}/>
+                  )}
                 </div>
               </div>
               <div className="game__mode more-settings" id="js__create-table-more-settings">
@@ -89,12 +69,12 @@ function CreateTableForm() {
                   <div className="triangle">▼</div>
                 </div>
               </div>
-              <div className={`game__mode game-choose-stake ${tableType !== "2" ? 'hidden' : ''}`} id="js__create-table-choose-stake">
+              <div className={`game__mode game-choose-stake ${tableType !== "2" && 'hidden'}`} id="js__create-table-choose-stake">
                 <div className="title-container">
                   <div className="title">Alege Miza</div>
                   <img alt="no" className="responsive__image coins" src="https://belot.md/static/images/user-account/coins2.png" />
                 </div>
-                <DropDown dropDownsItems={[25, 50, 100, 150, 200, 300]} />
+                <DropDown state={stakeValue} setState={getStake} dropDownsItems={dropDownsItems} />
               </div>
               <div className="game__mode game-table-color" id="js__create-table-color">
                 <div className="title">Culoarea mesei</div>
@@ -115,7 +95,7 @@ function CreateTableForm() {
               </div>
             </div>
             <div className="game-settings-second" id="js_create-table-second-column">
-              <div className={`game__mode game-points-choose ${tableType !== "3" ? 'hidden' : ''}`} id="js__create-table-point">
+              <div className={`game__mode game-points-choose ${tableType !== "3" && 'hidden'}`} id="js__create-table-point">
                 <div className="title">Jocul tine pana la</div>
                 <div className="radio__wrapper">
                   <div className="form__group__wrapper">
@@ -132,7 +112,7 @@ function CreateTableForm() {
                   </div>
                 </div>
               </div>
-              <div className={`checkbox__wrapper ${tableType !== "4" ? 'hidden' : ''}`} id="js__create-table-choose-places">
+              <div className={`checkbox__wrapper ${tableType !== "4" && 'hidden'}`} id="js__create-table-choose-places">
                 <div className="game__mode">
                   <input type="checkbox" id="game-pairs-mode" name="aleator" defaultChecked />
                   <label className="checkbox-label-wrapper" htmlFor="game-pairs-mode"><i className="checkmark"></i>
@@ -143,7 +123,7 @@ function CreateTableForm() {
                   </label>
                 </div>
               </div>
-              <div className={`checkbox__wrapper ${tableType !== "4" ? 'hidden' : ''}`} id="js__create-table-less-than-points">
+              <div className={`checkbox__wrapper ${tableType !== "4" && 'hidden'}`} id="js__create-table-less-than-points">
                 <div className="game__mode">
                   <input type="checkbox" id="game-cancel-mode" name="14puncte" />
                   <label className="checkbox-label-wrapper" htmlFor="game-cancel-mode"><i className="checkmark"></i>
@@ -151,7 +131,7 @@ function CreateTableForm() {
                   </label>
                 </div>
               </div>
-              <div id="js__daily-limit-create-table" className={`daily-limit-create-table ${tableType !== "2" ? 'hidden' : ''}`}>
+              <div id="js__daily-limit-create-table" className={`daily-limit-create-table ${tableType !== "2" && 'hidden'}`}>
                 <div className="info-about-statistic">
                   <div className="info-about-statistic__row">
                     <span className="info">Statistica de azi:</span>
@@ -168,7 +148,7 @@ function CreateTableForm() {
                   <a href="status.php" className="btn">Mareste Limita</a>
                 </div>
               </div>
-              <div className={`checkbox__wrapper ${tableType !== "2" ? 'hidden' : ''}`} id="js__create-table-reduced-combinations">
+              <div className={`checkbox__wrapper ${tableType !== "2" && 'hidden'}`} id="js__create-table-reduced-combinations">
                 <div className="game__mode">
                   <input type="checkbox" id="game-combination" name="combinatii-reduse" />
                   <label className="checkbox-label-wrapper" htmlFor="game-combination"><i className="checkmark"></i>
@@ -179,7 +159,7 @@ function CreateTableForm() {
                   </label>
                 </div>
               </div>
-              <div className={`checkbox__wrapper ${tableType === "2" ? 'hidden' : ''}`} id="js__create-table-password">
+              <div className={`checkbox__wrapper ${tableType === "2" && 'hidden'}`} id="js__create-table-password">
                 <div className="game__mode">
                   <input type="checkbox" id="game-password-mode" />
                   <label className="checkbox-label-wrapper" htmlFor="game-password-mode">
@@ -193,9 +173,7 @@ function CreateTableForm() {
               </div>
             </div>
           </div>
-          <div className="create-table-btn" role="button">
-            <div className="create">Creează masa</div>
-          </div>
+          <Button className='common-btn-color__green' text="Crează masa" onClick={test}/>
         </form>
       </div>
     </div>

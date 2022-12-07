@@ -1,9 +1,11 @@
 import React from 'react'
 import "./Button.sass"
 
-function Button({text, className = ""}) {
+function Button({text, className = "", onClick}) {
   return (
-    <div className={"common-btn-color__green " + className}>{text}</div>
+    <div className="common-button-wrapper">
+      <div className={`common-btn ${className}`} onClick={onClick}>{text}</div>
+    </div>
   )
 }
 
