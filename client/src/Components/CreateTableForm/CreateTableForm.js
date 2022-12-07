@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import "./CreateTableForm.sass"
+import React, { useState } from 'react';
+import "./CreateTableForm.sass";
+import DropDown from '../Common/DropDown/DropDown';
 
 function CreateTableForm() {
   const [tableType, setTableType] = useState('4');
@@ -93,21 +94,7 @@ function CreateTableForm() {
                   <div className="title">Alege Miza</div>
                   <img alt="no" className="responsive__image coins" src="https://belot.md/static/images/user-account/coins2.png" />
                 </div>
-                <div className="dropdown-component js__dropdown">
-                  <div className="dropdown-head">
-                    <div className="choosed-item" id="mizaMese2">25</div>
-                    <div className="triangle">▼</div>
-                  </div>
-                  <div className="dropdown-items">
-                    <div className="dropdown-item active" style={{"paddingLeft": "25px"}}>25</div>
-                    <div className="dropdown-item " style={{"paddingLeft": "25px"}}>50</div>
-                    <div className="dropdown-item " style={{"paddingLeft": "25px"}}>100</div>
-                    <div className="dropdown-item " style={{"paddingLeft": "25px"}}>150</div>
-                    <div className="dropdown-item " style={{"paddingLeft": "25px"}}>200</div>
-                    <div className="dropdown-item " style={{"paddingLeft": "25px"}}>300</div>
-                  </div>
-                  <input type="hidden" name="miza" />
-                </div>
+                <DropDown dropDownsItems={[25, 50, 100, 150, 200, 300]} />
               </div>
               <div className="game__mode game-table-color" id="js__create-table-color">
                 <div className="title">Culoarea mesei</div>

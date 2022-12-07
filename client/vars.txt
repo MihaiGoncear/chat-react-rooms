@@ -1,0 +1,12 @@
+$breakpoints_phone_small          : 320px
+$breakpoints_phone                : 400px
+$breakpoints_phone-wide           : 480px
+$breakpoints_phablet              : 560px
+$breakpoints_tablet-small         : 640px
+$breakpoints_tablet-middle        : 768px
+$breakpoints_tablet               : 860px
+$breakpoints_tablet-wide-down     : 1023px
+$breakpoints_tablet-wide          : 1024px
+$breakpoints_desktop              : 1240px
+$breakpoints_desktop-wide         : 1440px
+$breakpoints_desktop-ultraWide    : 1920px
