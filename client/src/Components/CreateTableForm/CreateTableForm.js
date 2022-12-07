@@ -59,7 +59,7 @@ function CreateTableForm() {
                 <div className="title">Status minim pentru a intra la masa</div>
                 <div className="radio__wrapper">
                   {createTableStatusList.map(
-                    (item, index) => <StatusTableRadioElement Tkey={index} state={tableMinStatus} setState={toggleTableMinStatus} statusObj={item}/>
+                    (item, index) => <StatusTableRadioElement key={item.value} state={tableMinStatus} setState={toggleTableMinStatus} statusObj={item}/>
                   )}
                 </div>
               </div>
