@@ -5,13 +5,8 @@ function DropDown({dropDownsItems}) {
   const [dropDownStatus, setDropDownStatus] = useState(false);
   const [stakeValue, setStakeValue] = useState(dropDownsItems[0]);
 
-  const setStatus = () => {
-    setDropDownStatus(!dropDownStatus)
-  } 
-  
-  const getStake = (e) => {
-    setStakeValue(e.target.innerText);
-  }
+  const setStatus = () => setDropDownStatus(!dropDownStatus);
+  const getStake = (e) => setStakeValue(e.target.innerText);
 
   return (
     <div className="dropdown-component">
@@ -26,7 +21,7 @@ function DropDown({dropDownsItems}) {
           })
         }
       </div>
-      <input type="hidden" name="miza" value={stakeValue}/>
+      <input type="hidden" value={stakeValue}/>
     </div>
   )
 }
