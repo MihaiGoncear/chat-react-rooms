@@ -1,0 +1,292 @@
+.line__wrapper
+  display: flex
+  background: linear-gradient(to right, transparent, #1b232a 50%, transparent 100%)
+  min-height: 50px
+  position: relative
+  &::after
+    content: ''
+    position: absolute
+    background: linear-gradient(to right, transparent, #639bc7 35%, #639bc7 65%, transparent 100%)
+    height: 1px
+    width: 100%
+    left: 0
+    right: 0
+    @media screen and (max-width: 600px) and (orientation: landscape)
+      background: linear-gradient(to right, transparent, #639bc7 15%, #639bc7 85%, transparent 100%)
+  .line__item
+    padding: 8px 10px
+    display: flex
+    align-items: center
+
+    &.table-player-count
+      .game__count__text
+        @media screen and (max-width: 600px)
+          display: none
+    &.table-color-points
+      flex: 0 0 100px
+      @media screen and (max-width: 640px)
+        flex: 0 0 81px
+      @media screen and (max-width: 500px)
+        display: none
+      .content__wrapper
+        justify-content: flex-start
+    &.table-options
+      flex: 0 0 75px
+      justify-content: center
+      @media screen and (max-width: 640px)
+        flex: 0 0 65px
+      @media screen and (max-width: 540px)
+        display: none
+    &.table-player-name
+      display: flex
+      align-content: center
+      flex: 1 0 auto
+      @media screen and (max-width: 420px)
+        padding: 8px 0 8px 10px
+    &.table-player-count
+      flex: 0 0 82px
+      display: flex
+      @media screen and (max-width: 460px)
+        flex: 0 0 56px
+        padding: 8px 5px
+      @media screen and (max-width: 345px)
+        flex: 0 0 38px
+        padding: 8px 2px
+      .text
+        margin-left: 5px
+    &.entergame-btn
+      flex: 0 0 115px
+      display: flex
+      justify-content: center
+      @media screen and (max-width: 640px)
+        flex: 0 0 100px
+      @media screen and (max-width: 420px)
+        flex: 0 0 90px
+        padding: 8px 6px 8px 0
+    .content__wrapper
+      display: flex
+      align-items: center
+      justify-content: center
+      text-align: center
+
+      button
+        cursor: pointer
+        @media screen and (max-width: 480px)
+          padding: 0.6em 0.7em
+      > *
+        margin-right: 10px
+
+        &:last-child
+          margin-right: 0
+      .timer-index-page
+        width: 100%
+        text-align: center
+    .table
+      width: 1.77em
+      height: 1.05em
+      border-radius: 0.55em
+    .text
+      color: #61667a
+      line-height: 1em
+  .stake-container-index
+    width: 100%
+    text-align: center
+    .icon
+      fill: #e1e1e1
+      margin-right: 0
+      width: 0.9rem
+    .text
+      color: #fff
+      font-size: 16px
+  .enum
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 1.44444em
+    height: 1.38889em
+    font-size: 0.77778em
+    padding: 4px 6px 4px 4px
+    text-transform: uppercase
+    border-radius: 4px
+    margin-right: 10px
+    cursor: default
+
+    &.style__2
+      width: 1.38889em
+      height: 1.38889em
+      padding: 4px
+
+    @media screen and (max-width: 480px)
+      border-radius: 2px
+      width: 1.5em
+      height: 1.5em
+      padding: 4px
+
+
+    &:last-child
+      margin-right: 0
+  .user__content
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    min-width: 10.27778em
+    @media screen and (max-width: 480px)
+      min-width: 100%
+
+    > *
+      margin-right: 5px
+
+      &:last-child
+        margin-right: 0
+
+  .games__content
+    .text
+      color: #fff
+      font-size: 14px
+
+  .user__level
+    width: 1.05em
+    height: 1.05em
+    background-position: center center
+    background-size: contain
+    background-repeat: no-repeat
+    &.supreme-god
+      width: 1.9rem
+      height: 1.2rem
+      margin-left: -11px
+
+  .username
+    color: #dedede
+    transition: .2s ease-in-out
+    text-align: left
+    cursor: pointer
+    @media screen and (max-width: 1025px)
+      font-size: 16px
+    @media screen and (max-width: 360px)
+      max-width: 95px
+      overflow: hidden
+      text-overflow: ellipsis
+
+    &:hover
+      color: #fff
+
+  .table-player-points
+    padding: 4px 6px
+    line-height: 1em
+    font-size: 0.77em
+    background-color: #10121e
+    color: #656c80
+    border-radius: 4px
+
+  .game__count__text
+    @media screen and (min-width: 1025px)
+      font-size: 16px
+
+  .game__count
+    width: 1.66em
+    height: 1.66em
+    background-size: contain
+    background-position: center center
+    background-repeat: no-repeat
+  .button__green,
+  .button__grey
+    flex-direction: row
+    justify-content: center
+    text-align: center
+    min-width: 5.55em
+    color: #fff
+    padding: 0.44em 0.88em
+    margin-right: 0 !important
+    @media screen and (max-width: 480px)
+      padding: 0.4em 0.7em
+      min-width: 6.1em
+    @media screen and (min-width: 768px)
+      font-size: 16px
+    .text
+      color: #fff
+      text-align: center
+      @media screen and (max-width: 480px)
+        font-size: 1.3em
+
+  .icon-lock,
+  .icon-monede
+    fill: #263238
+    width: 1em
+    height: 1em
+    margin-right: 0.44em
+
+  .table-gamers-present
+    display: flex
+    &.fourth-players-parent
+      span
+        &.fourth-player
+          top: -14px
+          left: -10px
+          @media screen and (max-width: 420px)
+            top: -18px
+            left: -4px
+        &.third-player
+          top: -3px
+          left: -20px
+          @media screen and (max-width: 420px)
+            top: -9px
+            left: -12px
+        &.second-player
+          top: -3px
+          @media screen and (max-width: 420px)
+            top: -9px
+            left: 4px
+        &.first-player
+          top: 8px
+          left: -10px
+          @media screen and (max-width: 420px)
+            top: 0
+            left: -4px
+    &.three-players-parent
+      span
+        &.third-player
+          top: -6px
+          left: -17px
+          @media screen and (max-width: 420px)
+            top: -14px
+            left: -10px
+        &.second-player
+          top: -6px
+          @media screen and (max-width: 420px)
+            top: -14px
+            left: 4px
+        &.first-player
+          top: 5px
+          left: -8px
+          @media screen and (max-width: 420px)
+            top: -3px
+            left: -3px
+    &.two-players-parent
+      span
+        &.fourth-player
+          top: -11px
+          left: -10px
+          @media screen and (max-width: 420px)
+            top: -16px
+            left: -3px
+        &.first-player
+          top: 4px
+          left: -10px
+          @media screen and (max-width: 420px)
+            top: -1px
+            left: -3px
+    span
+      width: 13px
+      height: 20px
+      margin: 0 1px
+      background: #6abd6d
+      border-radius: 2px
+      box-shadow: 0 1px 1px #0e1016
+      &.inactive
+        background: #7b7f98
+      @media screen and (max-width: 460px)
+        width: 9px
+        height: 15px
+      @media screen and (max-width: 345px)
+        width: 6px
+        height: 11px
