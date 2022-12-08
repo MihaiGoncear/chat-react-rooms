@@ -6,6 +6,12 @@
   flex-direction: column
   @media screen and (max-width: 768px)
     margin: 0
+  .dropdown-component
+    margin-left: 30px
+    .dropdown-head
+      padding: 10px 30px
+    .dropdown-items
+      top: calc(100% - 25px)
   .common-btn-color__green 
     padding: 10px 30px 12px 30px
     border-radius: 7px
@@ -70,10 +76,16 @@
         color: #d32f2f
     .choose__player__numbers
       display: flex
+      flex-direction: column
       width: 100%
       padding: 5px 20px
+      > *
+        margin-bottom: 10px
       .choose-player-numbers-title
-        display: none
+        display: unset
+        text-align: center
+        font-weight: 600
+        padding: 0
       .form-full-wrapper-group
         display: flex
         width: 100%
@@ -88,41 +100,27 @@
         @media screen and (max-width: 370px)
           flex-direction: column
         .form__group__wrapper
-          display: flex
-          padding: 15px 0
+          flex: 0 1 33.33%
           justify-content: center
+          padding: 15px 0
           @media screen and (max-width: 768px)
             flex: 0 0 auto
             margin: 0 7px
-      @media screen and (max-width: 768px)
-        flex-direction: column
-        padding: 20px 0
-        > *
-          margin-bottom: 10px
-        .choose-player-numbers-title
-          display: unset
-          text-align: center
-          font-weight: 600
-          padding: 0
+          
     .form__group__wrapper
       display: flex
-      flex: 0 1 33.33%
       align-items: center
       @media screen and (max-width: 768px)
         padding: 0 0 0 20px
-
-      input[type="radio"]
-        display: none
+      &.active
+        .checkmark
+          &::before
+            content: ""
       .form__group__content__wrapper
         display: flex
         flex: 0 0 auto
         align-items: center
         cursor: pointer
-
-      input[type="radio"]:checked + label
-        .checkmark
-          &::before
-            content: ''
       .checkmark
         width: 21px
         height: 21px
@@ -133,7 +131,6 @@
         margin-right: 10px
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.51)
         &::before
-          content: unset
           border-radius: 50%
           position: absolute
           top: 2px
@@ -167,8 +164,9 @@
             border-radius: 7px
 
         .icon
-          width: 4rem
-          height: 3.5rem
+          width: 2.6rem
+          height: 2.6rem
+          margin-bottom: -5px
           fill: #fffde7
           box-shadow: inset 0 0 3px #000000
           border-radius: 11px
@@ -176,8 +174,6 @@
           position: relative
           z-index: 2
           @media screen and (max-width: 768px)
-            width: 3rem
-            height: 2.5rem
             border-radius: 6px
       .description
         display: flex
@@ -206,6 +202,8 @@
         @media screen and (max-width: 768px)
           background-color: unset
           padding: 0
+        > *
+          flex: 0 1 50%
         .game__mode
           display: flex
           flex-direction: column
@@ -225,9 +223,9 @@
             @media screen and (max-width: 768px)
               order: 3
               justify-content: center
-              .dropdown-items
-                left: 0
-                right: 0
+              // .dropdown-items
+              //   left: 0
+              //   right: 0
             .title-container
               display: flex
               justify-content: center
@@ -235,17 +233,17 @@
               img
                 width: 1.2rem
                 height: 1.2rem
-            .dropdown-component
-              margin-left: 30px
-              padding: 0
-              max-width: 110px
-              width: 100%
-              .dropdown-head
-                padding: 10px
-                justify-content: center
-              .dropdown-item
-                padding: 15px 0 !important
-                text-align: center
+            // .dropdown-component
+            //   margin-left: 30px
+            //   padding: 0
+            //   max-width: 110px
+            //   width: 100%
+            //   .dropdown-head
+            //     padding: 10px
+            //     justify-content: center
+            //   .dropdown-item
+            //     padding: 15px 0 !important
+            //     text-align: center
           &.game-table-color
             @media screen and (max-width: 768px)
               order: 1
@@ -274,7 +272,6 @@
                     transform: rotate(180deg)
                 &:hover
                   background-color: #5d638b
-
           &.game-min-level
             justify-content: space-between
             @media screen and (max-width: 768px)
@@ -310,10 +307,6 @@
               display: flex
               flex: 1 1 calc(50% - 25px)
               padding: 10px 7px
-              &.active
-                .checkmark
-                  &::before
-                    content: ''
               .table-color-div
                 width: 54px
                 height: 30px
@@ -350,8 +343,6 @@
         padding: 25px 0 25px 40px
         @media screen and (max-width: 768px)
           padding: 0 10px 0 20px
-          &.hidden
-            display: none
         .game__mode
           padding: 10px 0
           display: flex
@@ -370,12 +361,10 @@
                 display: flex
                 flex: 1 1 calc(50% - 25px)
                 padding: 10px 7px
-          input[type='checkbox']
-            display: none
-          input[type='checkbox']:checked + label
+          &.active
             .checkmark
               &::before
-                content: ''
+                content: ""
           .checkbox-label-wrapper
             display: flex
             margin-bottom: 20px
@@ -397,7 +386,6 @@
                 height: 25px
                 border-radius: 5px
               &::before
-                content: unset
                 width: 9px
                 height: 14px
                 border-width: 0 3px 3px 0
@@ -447,7 +435,7 @@
               span
                 margin-right: 10px
               input
-                height: 40px
+                height: 26px
                 padding: 5px
                 border-radius: 10px
                 border: 2px solid #d0d0d0

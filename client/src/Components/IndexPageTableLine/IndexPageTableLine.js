@@ -33,7 +33,7 @@ function IndexPageTableLine(infoObj) {
 			</div>
 			<div className="line__item entergame-btn">
 				<div className="content__wrapper ui__rows">
-					<Button text="Intra" />
+					<Button text="Intra" className='common-btn-color__green' />
 				</div>
 			</div>
 		</div>

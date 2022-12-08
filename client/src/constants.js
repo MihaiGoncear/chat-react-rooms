@@ -1,1 +1,2 @@
-export const createTableStatusList = [{value: -1, name: "Pentru toți"}, {value: 2, name: "Amator"}, {value: 4, name: "Profesionist"}, {value: 6, name: "Master"}];
+export const createTableStatusList = [{value: -1, name: "Pentru toți"}, {value: 2, name: "Amator", imgSrc: 2}, {value: 4, name: "Profesionist", imgSrc: 4}, {value: 6, name: "Master", imgSrc: 6}];
+export const createTableTableTypes = [{value: 4, text: "4 în perechi"}, {value: 3, text: "în 3"}, {value: 2, text: "în 2 la monede"}]; 
