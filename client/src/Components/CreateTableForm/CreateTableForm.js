@@ -35,11 +35,12 @@ function CreateTableForm({setTableToState}) {
   const setPasswordStatusFunction = (e) => !(e.target instanceof HTMLInputElement) && setPasswordStatus(!passwordStatus);
   const setCancelGameIfLessThan14PointsFunction = () => setCancelGameIfLessThan14Points(!cancelGameIfLessThan14Points);
   const setReducedCombinationsFunction = () => setReducedCombinations(!reducedCombinations);
-  
+  let tableTypeArr = [];
+  for (let i = 1; i <= tableType; i++) tableTypeArr.push(i);
   let newStateObj = {
     tableType: tableType,
     stakeValue: stakeValue,
-    tableTypeArr: [1, 2, 3, 4],
+    tableTypeArr: tableTypeArr,
     tableMinStatus: tableMinStatus,
     passwordValue: passwordValue,
     randomPairsStatus: randomPairsStatus,
@@ -61,7 +62,7 @@ function CreateTableForm({setTableToState}) {
       setTableColor("green");
       setTableGamePoints(element === 3 ? 51 : 101);
       setReducedCombinations(false);
-      let tableTypeArr = [];
+      tableTypeArr = [];
       for (let i = 1; i <= tableType; i++) tableTypeArr.push(i);
       
       newStateObj = {

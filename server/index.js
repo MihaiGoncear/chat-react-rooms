@@ -30,7 +30,7 @@ io.on("connection", (socket) => {
   //   console.log("User Disconnected", socket.id);
   // });
   socket.on("create_table", (data) => {
-    console.log(data)
+    io.emit("create_table_row", data)
   })
 });
 

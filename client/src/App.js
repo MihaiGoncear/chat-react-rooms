@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import io from "socket.io-client";
 // import { useState } from "react";
@@ -8,7 +8,7 @@ import CreateTableForm from "./Components/CreateTableForm/CreateTableForm";
 
 import "./Components/IndexPageTableLine/IndexPageTableLine.sass"
 
-// const socket = io.connect("http://localhost:3001");
+const socket = io.connect("http://localhost:3001");
 
 function App() {
   // const [username, setUsername] = useState("");
@@ -26,7 +26,16 @@ function App() {
   const setTableLinesFunction = (tableData) => {
     setTableLines((list) => [...list, tableData])
   }
-  console.log(tableLines);
+
+  useEffect(() => {
+    socket.on("create_table_row", (tableData) => {
+      setTableLines((list) => [...list, tableData])
+      console.log('testest', tableData);
+    });
+  }, [tableLines]);
+
+  console.log('finalllll;', tableLines);
+
 
   return (
     <div className="App">
